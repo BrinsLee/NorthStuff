@@ -39,6 +39,7 @@ class _HomePageState extends State<HomePage>
         child: TabBar(
           indicatorColor: ThemeUtils.currentColorTheme,
           controller: _tabController,
+
           tabs: tabs.map((f) => Tab(text: f)).toList(),
         ),
       ),

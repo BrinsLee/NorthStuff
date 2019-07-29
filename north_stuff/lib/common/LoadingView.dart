@@ -10,7 +10,7 @@ class LoadingView extends StatefulWidget {
   static const successContentAnimationDuration = Duration(milliseconds: 400);
 
   const LoadingView({
-//    @required this.status,
+    @required this.status,
     @required this.loadingContent,
     @required this.errorContent,
     @required this.successContent,

@@ -26,7 +26,7 @@ class _TabViewState extends State<TabView> {
     return LoadingView(
       loadingContent: ProgressIndicators(),
       errorContent: Container() ,
-      successContent: ,
+      successContent: Container()
     );
   }
 
