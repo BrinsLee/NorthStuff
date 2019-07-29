@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:north_stuff/api/Api.dart';
 import 'package:north_stuff/utils/NetWorkUtils.dart';
 import 'dart:convert';
+import 'package:north_stuff/common/LoadingView.dart';
+import 'package:north_stuff/model/ShoesInfo.dart';
+import 'package:north_stuff/common/ProgressIndicator.dart';
 
 class TabView extends StatefulWidget {
+  TabView({this.type});
+
+  final ShoesType type;
+
   @override
   _TabViewState createState() => _TabViewState();
 }
@@ -16,7 +23,11 @@ class _TabViewState extends State<TabView> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return LoadingView(
+      loadingContent: ProgressIndicators(),
+      errorContent: Container() ,
+      successContent: ,
+    );
   }
 
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:north_stuff/utils/ThemeUtils.dart';
-import 'package:north_stuff/pages/TabView.dart';
+import 'package:north_stuff/common/TabView.dart';
 
 class HomePage extends StatefulWidget {
   @override
