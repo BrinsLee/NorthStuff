@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage>
       Expanded(
         child: TabBarView(
           controller: _tabController,
-          children: [tabviewList[0], tabviewList[1], tabviewList[2]],
+          children: tabviewList,
         ),
       ),
     ]));

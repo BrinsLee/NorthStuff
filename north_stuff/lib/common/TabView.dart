@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:north_stuff/api/Api.dart';
 import 'package:north_stuff/utils/NetWorkUtils.dart';
-import 'dart:convert';
 import 'package:north_stuff/common/LoadingView.dart';
 import 'package:north_stuff/model/ShoesInfo.dart';
 import 'package:north_stuff/common/ProgressIndicator.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:north_stuff/common/state/AppState.dart';
+import 'package:north_stuff/model/TabViewModel.dart';
+import 'package:north_stuff/common/SruffGrid.dart';
+import 'package:north_stuff/common/actions/CommonAction.dart';
 
 class TabView extends StatefulWidget {
   TabView({this.type});
@@ -23,10 +27,11 @@ class _TabViewState extends State<TabView> {
 
   @override
   Widget build(BuildContext context) {
-    return LoadingView(
-      loadingContent: ProgressIndicators(),
-      errorContent: Container() ,
-      successContent: Container()
+    return StoreConnector<AppState,TabViewModel>(
+      distinct: true,
+      onInit: (store) => store.dispatch(InitCompleteAction()),
+      converter: (store) => TabViewModel.fromStore(store),
+      builder: (_, viewModle) => EventPageContent(viewModle),
     );
   }
 
@@ -38,32 +43,26 @@ class _TabViewState extends State<TabView> {
       var pixels = _scrollController.position.pixels;
       if (maxScroll == pixels && listData.length < listData.listTotalSize) {
         curPage++;
-        getNewsList(true);
-      }
-    });
-    getNewsList(false);
-  }
-
-  Future<Null> _pullToRefreash() async {
-    curPage = 1;
-    getNewsList(false);
-    return null;
-  }
-
-  getNewsList(bool isLoadMore) {
-    String url = Api.baseUrl + Api.baseketBall;
-    NetWorkUtils.get(url).then((res) {
-      if (res != null) {
-        Map<String, dynamic> map = json.decode(res);
-        if (map['status'] == 200) {}
-        var msg = map['datas'];
-        print(msg);
-        setState(() {
-          if (!isLoadMore) {
-            listData = msg;
-          }
-        });
       }
     });
   }
+}
+
+class EventPageContent extends StatelessWidget{
+
+  EventPageContent(this.model);
+  final TabViewModel model;
+
+  @override
+  Widget build(BuildContext context) {
+    return LoadingView(
+      status: model.status,
+      loadingContent: ProgressIndicators(),
+      errorContent: Container(child: Text("loading failed"),),
+      successContent: StuffGrid(
+        stuffInfo: model.events,
+      ),
+    );
+  }
+
 }
