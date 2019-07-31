@@ -6,7 +6,7 @@ ShowState showReducer(ShowState state, dynamic action) {
   if (action is RequestShowsAction) {
     return ShowState(loadingStatus: LoadingStatus.loading);
   } else if (action is ReceivedShowsAction) {
-    return ShowState(loadingStatus: LoadingStatus.success);
+    return ShowState(loadingStatus: LoadingStatus.success, info: action.shows );
   } else if (action is ErrorLoadingShowsAction) {
     return ShowState(loadingStatus: LoadingStatus.error);
   }

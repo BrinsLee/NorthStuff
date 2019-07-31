@@ -11,7 +11,7 @@ class ShoesInfo {
   final String offical_name;
   final String pic;
   final num price;
-  final List<num> size;
+  final List<String> size;
 
   ShoesInfo(
       {this.has_suppliers,
@@ -24,7 +24,7 @@ class ShoesInfo {
 
   factory ShoesInfo.fromJson(Map<String, dynamic> json) {
     var size = json['size'];
-    List<num> sizenum = new List<num>.from(size);
+    List<String> sizenum = new List<String>.from(size);
     return ShoesInfo(
       has_suppliers: json['has_suppliers'],
       id: json['id'],

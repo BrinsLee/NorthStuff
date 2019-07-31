@@ -7,12 +7,12 @@ class ShowState {
   ShowState({@required this.loadingStatus, @required this.info});
 
   final LoadingStatus loadingStatus;
-  final KtList<ShoesInfo> info;
+  final List<ShoesInfo> info;
 
   factory ShowState.inital() {
     return ShowState(
       loadingStatus: LoadingStatus.idle,
-      info: emptyList(),
+      info: List<ShoesInfo>(),
     );
   }
 }

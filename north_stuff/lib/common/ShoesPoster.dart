@@ -15,6 +15,7 @@ class ShoesPoster extends StatelessWidget {
     final content = <Widget>[
     ];
     addIfNonNull(_buildPosterImage(), content);
+    print("pic:"+ event.pic);
     return Container(
       decoration: _buildDecorations(),
       width: size?.width,
@@ -30,7 +31,7 @@ class ShoesPoster extends StatelessWidget {
       event.pic != null
           ? FadeInImage.assetNetwork(
         placeholder: ImageAssets.transparentImage,
-        image: event.pic,
+        image: "http:"+ event.pic,
         width: size?.width,
         height: size?.height,
         fadeInDuration: const Duration(milliseconds: 300),

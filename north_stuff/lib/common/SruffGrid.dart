@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:north_stuff/model/ShoesInfo.dart';
-import 'package:kt_dart/collection.dart';
 import 'package:north_stuff/common/StuffGridItem.dart';
 
 class StuffGrid extends StatelessWidget {
@@ -12,13 +11,13 @@ class StuffGrid extends StatelessWidget {
     this.onReloadCallback,
   });
 
-  final KtList<ShoesInfo> stuffInfo;
+  final List<ShoesInfo> stuffInfo;
   final VoidCallback onReloadCallback;
 
   @override
   Widget build(BuildContext context) {
-    if (stuffInfo.isEmpty()) {
-      return Container();
+    if (stuffInfo == null) {
+      return Container(child: Text("加载失败"),);
     }
     return _Content(stuffInfo);
   }
@@ -27,7 +26,7 @@ class StuffGrid extends StatelessWidget {
 class _Content extends StatelessWidget {
   _Content(this.stuffInfo);
 
-  final KtList<ShoesInfo> stuffInfo;
+  final List<ShoesInfo> stuffInfo;
 
   _openDetails(BuildContext context, int index) {}
 
@@ -53,7 +52,7 @@ class _Content extends StatelessWidget {
                 crossAxisCount: crossAxisChildCount,
                 childAspectRatio: 2 / 3,
               ),
-              itemCount: stuffInfo.size,
+              itemCount: stuffInfo.length,
               itemBuilder: _buildItem)),
     );
   }

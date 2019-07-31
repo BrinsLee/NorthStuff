@@ -11,7 +11,7 @@ class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   TabController _tabController; //需要定义一个Controller
 
-  List tabs = ["James", "Durant", "Harden"];
+  List tabs = ["Irving", "Durant", "Harden"];
   List<Widget> tabviewList = [TabView(), TabView(), TabView()];
 
   @override
