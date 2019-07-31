@@ -37,7 +37,7 @@ class _TextualInfo extends StatelessWidget {
         end: Alignment.topCenter,
         stops: [0.0, 0.7, 0.7],
         colors: [
-          Colors.black,
+          Colors.black54,
           Colors.transparent,
           Colors.transparent,
         ],

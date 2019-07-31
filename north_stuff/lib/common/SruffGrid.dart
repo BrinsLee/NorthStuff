@@ -28,13 +28,15 @@ class _Content extends StatelessWidget {
 
   final List<ShoesInfo> stuffInfo;
 
-  _openDetails(BuildContext context, int index) {}
+  _openDetails(BuildContext context, ShoesInfo event) {
+//    Navigator.push(context, MaterialPageRoute(builder: (_) => ),
+  }
 
   Widget _buildItem(BuildContext context, int index) {
     final event = stuffInfo[index];
     return StuffGridItem(
       info: event,
-      onTapped: () => _openDetails(context, index),
+      onTapped: () => _openDetails(context, event),
     );
   }
 

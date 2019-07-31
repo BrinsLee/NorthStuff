@@ -4,7 +4,8 @@ class InitCompleteAction {
 }
 
 class RequestShowsAction {
-
+  RequestShowsAction(this.params);
+  final Map<String, dynamic> params;
 }
 
 class ReceivedShowsAction{

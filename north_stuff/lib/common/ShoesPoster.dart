@@ -54,8 +54,8 @@ _buildDecorations() {
         begin: Alignment.bottomCenter,
         end: Alignment.topCenter,
         colors: [
-          Color(0xFF222222),
           Color(0xFF424242),
+          Colors.white
         ],
       )
   );
